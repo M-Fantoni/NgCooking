@@ -1,0 +1,81 @@
+﻿@model NgCooking.Models.ConnexionModel
+           @{
+               var ajaxOpts = new AjaxOptions { 
+                   HttpMethod = "POST", 
+                   InsertionMode = InsertionMode.Replace, 
+                   UpdateTargetId = "divResult" };
+           }
+<div class="col-sm-3" id="col-nav">
+    <button type="button" id="mobile-close-btn">
+        <i class="glyphicon glyphicon-remove"></i>
+    </button>
+    <nav id="nav">
+        <ul class="menu">
+            <li class="page_hom active">
+                <a href="home.html">Accueil</a>
+            </li>
+            <li class="page_rec">
+                <a href="recettes.html">Recettes</a>
+            </li>
+            <li class="page_ing">
+                <a href="ingredients.html">Ingredients</a>
+            </li>
+            <li class="page_com">
+                <a href="communaute.html">Communauté</a>
+            </li>
+        </ul>
+        <div class="account-area">
+            @if (!ViewBag.IsConnected || ViewBag.IsConnected == null)
+            {
+                <button type="button" class="button connect" data-popin-open="connect_popin"><span class="icon"></span>Connexion</button>
+            }
+            @if (ViewBag.IsConnected)
+            {
+                <a href="communaute_details.html" class="button account"><span class="icon"></span>Mon profil</a>
+                <a href="/Connexion/Disconnect" class="button deconnect"><span class="glyphicon glyphicon-off"></span>Deconnexion</a>
+            }
+        </div>
+    </nav>
+</div>
+
+<div class="popin" data-popin="connect_popin">
+    <div class="popin-content">
+        <div class="popin-scroll">
+            <p class="popin-title">Connexion</p>
+            @using (Ajax.BeginForm("Connect", "Connexion", ajaxOpts))
+            {
+                <p>
+                    <label for="co_user" class="fwb">Identifiant (email)</label>
+                    @Html.TextBoxFor(m => m.Login, new { @class = "wide" })
+                    @*<input id="co_user" class="wide" type="text" />*@
+                </p>
+                <p>
+                    <label for="co_pwd" class="fwb">Mot de passe</label>
+                    @Html.PasswordFor(m => m.Password, new { @class = "wide" })
+                    @*<input id="co_pwd" class="wide" type="text" />*@
+                </p>
+                <div id="divResult" name="divResult" class="alert-danger alert"></div>
+                <p class="ac nm mt2">
+                    <button type="submit" class="btn btn_big btn_color1" id=""><span class="glyphicon glyphicon-ok"></span><span class="fwb uc">Valider</span></button>
+                </p>
+            }
+        </div>
+        <button class="close popin-close"><span class="glyphicon glyphicon-remove"></span></button>
+    </div>
+    <div class="popin-backlayer"></div>
+</div>
+
+    <script type="text/javascript">
+
+        $("#login").click(function () {
+            alert($('form'))
+            $.ajax({
+                url: "/Connexion/Connect",
+                method: "POST",
+                data: JSON.stringify($('form')),
+                success: function () { alert("coucou toi") },
+                error: function() { alert("NOPE") }
+            })
+        });
+</script>
+

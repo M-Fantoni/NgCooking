@@ -1,0 +1,12 @@
+D:\projet\NgCooking\NgData\bin\Debug\NgData.dll.config
+D:\projet\NgCooking\NgData\bin\Debug\NgData.dll
+D:\projet\NgCooking\NgData\bin\Debug\NgData.pdb
+D:\projet\NgCooking\NgData\bin\Debug\EntityFramework.dll
+D:\projet\NgCooking\NgData\bin\Debug\EntityFramework.SqlServer.dll
+D:\projet\NgCooking\NgData\bin\Debug\Newtonsoft.Json.dll
+D:\projet\NgCooking\NgData\bin\Debug\EntityFramework.xml
+D:\projet\NgCooking\NgData\bin\Debug\EntityFramework.SqlServer.xml
+D:\projet\NgCooking\NgData\bin\Debug\Newtonsoft.Json.xml
+D:\projet\NgCooking\NgData\obj\Debug\NgData.dll
+D:\projet\NgCooking\NgData\obj\Debug\NgData.pdb
+D:\projet\NgCooking\NgData\obj\Debug\NgData.csprojResolveAssemblyReference.cache
